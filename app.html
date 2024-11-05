@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="app.css"/> <!-- Link to the CSS file --> 
+    <script src="app.js" defer></script> <!-- Link to the external JavaScript file -->
+    <title>Salon Appointment</title>
+</head>
+<body>
+    <header>
+        <a href="app.html"> <!-- Link to the main page -->
+            <img src="images/log.jpg" alt="Salon Logo" class="logo"/> <!-- Logo Image -->
+        </a>
+        <div class="header-buttons">
+            <button onclick="showContent('services')">Services</button>
+            <button onclick="showContent('book-appointment')">Book Appointment</button>
+            <button onclick="showContent('Gallery')">Gallery</button>
+            <button onclick="showContent('feedback')">Feedback</button>
+        </div>
+        <h1 class="header-email">
+            <span>
+                <a href="mailto:girlssalon@gmail.com">📧 : girlssalon@gmail.com</a>
+            </span>
+            <span>
+                📞 Contact: <a href="tel:1234567891">1234567891</a>
+            </span>
+        </h1>
+    </header>
+
+    <div id="services" class="content hidden">
+        <img src="images/pic.webp" alt="Service 1" class="service-image">
+        <img src="images/pic2.webp" alt="Service 2" class="service-image">
+        <img src="images/pic3.webp" alt="Service 3" class="service-image">
+    </div>
+
+    <div id="book-appointment" class="content hidden">
+        <h2>Book an Appointment 🗓️</h2>
+        <form id="appointmentForm" action="book_appointment.php" method="POST" onsubmit="submitForm(); return false;"> <!-- Added action and method -->
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+        
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+        
+            <label>Phone</label>
+            <div class="form-group-inline">
+                <span>+91</span>
+                <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
+            </div>
+        
+            <label for="salon">Salon and Category</label>
+            <div class="form-group-inline">
+                <select id="salon" name="salon" required>
+                    <option value="">Select Salon</option>
+                    <option value="Salon 1">Hyderabad</option>
+                    <option value="Salon 2">Kukkatpally</option>
+                </select>
+                
+                <select id="category" name="category" required>
+                    <option value="">Select Category</option>
+                    <option value="Haircut">Haircut</option>
+                    <option value="Facial">Facial</option>
+                    <option value="Nails">Nails</option>
+                    <option value="Pedicure">Pedicure</option>
+                </select>
+            </div>
+        
+            <label>Date</label>
+            <div class="form-group-inline">
+                <input type="text" id="date" name="date" placeholder="dd-mm-yyyy" required>
+                <div class="form-group-inline">
+                    <input type="text" id="hours" name="hours" placeholder="HH" maxlength="2" required> :
+                    <input type="text" id="minutes" name="minutes" placeholder="MM" maxlength="2" required>
+                </div>
+            </div>
+            
+            <label for="comments">Comments</label>
+            <textarea id="comments" name="comments" rows="4"></textarea>
+        
+            <button type="submit">Book Appointment</button>
+
+        </form>
+        
+        <p><b>Please contact us to schedule your appointment.</b></p>
+    </div>
+    
+
+    <div id="Gallery" class="content hidden">
+        <h2>About Our Salon</h2>
+        
+    
+        <div id="carousel">
+            <div class="carousel-images">
+                <img src="images/g4.png" alt="Gallery Image 1" class="carousel-image">
+                <img src="images/g2.webp" alt="Gallery Image 2" class="carousel-image">
+                <img src="images/g3.webp" alt="Gallery Image 3" class="carousel-image">
+                <img src="images/g1.webp" alt="Gallery Image 4" class="carousel-image">
+                <img src="images/g5.png" alt="Gallery Image 5" class="carousel-image">
+                <img src="images/g6.jpeg" alt="Gallery Image 6" class="carousel-image">
+            </div>
+            <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="next" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+    </div>
+    
+    <div id="feedback" class="content hidden">
+        <h2>Feedback</h2>
+        <p>We value your feedback. Please let us know how we did!</p>
+        <form id="feedbackForm" action="feedback.php" method="POST" onsubmit="submitFeedback(); return false;"> <!-- Added action and method -->
+            <label for="feedbackName">Name:</label>
+            <input type="text" id="feedbackName" name="name" required><br><br>
+            <label for="feedbackText">Your Feedback:</label><br>
+            <textarea id="feedbackText" name="feedback" rows="4" required></textarea><br><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <div class="footer">
+        © 2024 Your Company. All rights reserved.
+    </div>
+</body>
+</html>

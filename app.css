@@ -1,0 +1,366 @@
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('images/back.jpg'); /* Background image */
+    background-size: cover; /* Cover the entire viewport */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat;
+    padding-bottom: 200px;
+    align-items: flex-start; /* Space at the bottom to avoid overlap with footer */
+}
+
+/* Header Styles */
+header {
+    background-color: rgba(213, 52, 219, 0.6); /* Header background color with transparency */
+    color: white; /* Header text color */
+    padding: 10px 20px;
+    display: flex;
+    align-items: center; /* Align items vertically */
+    justify-content: flex-start; /* Align items to the left */
+    gap: 15px; /* Space between logo and buttons */
+    position: fixed; /* Fix the header at the top */
+    top: 0; /* Position at the very top */
+    width: 100%; /* Full-width header */
+    z-index: 1000; /* Keep it above other content */
+}
+
+/* Logo Styles */
+.logo {
+    height: 70px; /* Adjust logo size */
+    width: auto; /* Maintain aspect ratio */
+}
+
+/* Header Button Styles */
+.header-buttons {
+    display: flex;
+    gap: 10px; /* Space between buttons */
+}
+
+.header-buttons button {
+    background-color: #b929ad; /* Button background color */
+    color: white; /* Button text color */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.header-buttons button:hover {
+    background-color: #1f6398; /* Darker shade on hover */
+}
+
+/* Header Email Styles */
+h1 {
+    font-size: larger;
+    font-style: normal;
+    color: #333333;
+    margin-left: auto; /* Push email to the far right */
+    padding-right: 100px; /* Space between header and email */
+    align-self: flex-start;
+    margin-top: 30px;
+}
+
+.header-email a {
+    color: black;
+    text-decoration: none;
+}
+
+.header-email a:hover {
+    text-decoration: underline;
+}
+
+/* Content Section Styles */
+.content {
+    padding: 0px;
+    display: none; /* Hide all content sections by default */
+    margin-top: 0px; /* Space for the fixed header */
+    align-items: flex-start;
+}
+/* Services section styling */
+#services {
+    text-align: center; /* Center-align the images */
+    margin: 50px auto; /* Center the section and provide more vertical space */
+    padding: 80px; /* Add padding around the services section */
+}
+
+#services .service-image {
+    width: 380px; /* Increased width */
+}
+
+/* Service images */
+.service-image {
+    width: 600px; /* Increase width for larger images */
+    height: auto; /* Maintain aspect ratio */
+    margin: 50px; /* Space between images */
+    opacity: 0; /* Start with images hidden */
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Smooth transition for opacity and transform */
+    transform: translateY(20px); /* Start images slightly below their final position */
+}
+
+/* Show class for animation */
+.show {
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* Move to the final position */
+}
+
+/* Animation to show images */
+@keyframes fadeInCenter {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* Start slightly below */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* End at original position */
+    }
+}
+
+/* Applying animation on images */
+.service-image.show {
+    animation: fadeInCenter 0.5s ease forwards; /* Animation effect */
+}
+
+
+/* Add margin to the Book Appointment heading */
+#book-appointment h2 {
+    margin-top: 100px; /* Adjust the value as needed to drag the heading down */
+    margin-bottom: 20px; /* Optional: add space below the heading */
+    text-align:left; /* Optional: center the heading */
+}
+
+/* Form Styles */
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin: 50px auto 0; /* Keep margin-top small to align near the top */
+    margin: 50px auto 0;
+}
+
+/* Wrapper or container to control alignment */
+.container {
+    display: flex;
+    justify-content: center; /* Center horizontally if needed */
+    align-items:center; /* Align content at the top */
+    min-height: 100vh;
+    padding-top: 100px; /* Optional: Adjust padding for top spacing */
+}
+
+label {
+    font-weight: bold;
+    color: #555;
+}
+
+/* Inline Form Group */
+.form-group-inline {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+    width: 100%; /* Full width */
+    padding: 10px;
+    margin: 8px 0 16px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Adjust widths for inline fields */
+#phone,
+#hours,
+#minutes,
+#salon,
+#category {
+    width: calc(50% - 5px); /* 50% width for inline layout */
+}
+
+input[type="text"]::placeholder,
+input[type="tel"]::placeholder,
+textarea::placeholder {
+    color: #aaa;
+}
+
+input#hours,
+input#minutes {
+    width: 45px;
+    text-align: center;
+}
+
+span {
+    font-size: 16px;
+    color: #555;
+    margin-left: 8px;
+}
+
+select {
+    appearance: none;
+    cursor: pointer;
+}
+
+button[type="button"] {
+    width: 100%;
+    background-color: #5cb85c;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="button"]:hover {
+    background-color: #4cae4c;
+}
+
+textarea {
+    resize: none;
+}
+/* Style for the feedback container */
+#feedback {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 120px auto;
+}
+
+/* Header text styling */
+#feedback h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Description text styling */
+#feedback p {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+/* Style for input fields */
+#feedback input[type="text"],
+#feedback textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Style for the submit button */
+#feedback input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+/* Submit button hover effect */
+#feedback input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #333; /* Footer background color */
+    color: #fff; /* Footer text color */
+    text-align: center; /* Center text in footer */
+    padding: 10px 0; /* Vertical padding for footer */
+    position: fixed; /* Keep footer at the bottom */
+    width: 100%; /* Full-width footer */
+    bottom: 0; /* Position at the bottom */
+}
+
+/* Target Div Styles */
+#target-div {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+}
+.hidden {
+    display: none; /* Initially hide the images */
+}
+
+#servicesImages {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: space-around; /* Space images evenly */
+    margin-top: 20px; /* Space above images */
+}
+
+.service-image {
+    width: 200px; /* Set a fixed width for images */
+    height: auto; /* Maintain aspect ratio */
+    opacity: 0; /* Start with opacity 0 for fade-in effect */
+    transform: translateY(20px); /* Start slightly lower for animation */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Animation transition */
+}
+
+.service-image.show {
+    opacity: 1; /* Fully visible when class 'show' is added */
+    transform: translateY(0); /* Return to original position */
+}
+/* Carousel styles */
+/* Gallery Section */
+/* Carousel Container */
+#carousel {
+    position: relative;
+    width: 300%;
+    height: 600px; /* Set the desired height */
+    max-width: 800px; /* Optional: max-width for the carousel */
+    margin:auto;
+    overflow: hidden;
+}
+
+/* Images inside Carousel */
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease;
+    height: 100%; /* Make sure the flex container takes full height */
+}
+
+.carousel-image {
+    min-width: 100%; /* Ensure each image takes full width */
+    height: 100%; /* Set height to fill the container */
+    object-fit: cover; /* Cover the entire area while maintaining aspect ratio */
+}
+
+/* Buttons */
+button.prev, button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    padding: 10px;
+}
+
+button.prev {
+    left: 10px; /* Position left */
+}
+
+button.next {
+    right: 10px; /* Position right */
+}
